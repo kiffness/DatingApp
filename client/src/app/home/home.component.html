@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div *ngIf="!registerMode" style="text-align: center;">
+        <h1>Find your match</h1>
+        <p class="lead">Come on in to find your matches... all you need to do is sign up!</p>
+        <div class="text-center">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
+            <button class="btn btn-info btn-lg">Learn more</button>
+        </div>
+    </div>
+
+    <div *ngIf="registerMode" style="text-align: center;" class="container">
+        <div class="row justify-content-center">
+            <!-- cancelRegister is sending data to the parent component, in this case setting the registerMode to false when clicking cancel *Note the $event this is an emitter, need a method in the parent and child component 4 THINGS*-->
+            <div class="col-4">
+                <app-register 
+                (cancelRegister)="cancelRegisterMode($event)">
+            </app-register>
+            </div>
+        </div>
+    </div>
+</div>
